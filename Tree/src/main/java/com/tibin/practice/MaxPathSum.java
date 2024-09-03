@@ -4,10 +4,9 @@ import com.tibin.practice.datastructure.Node;
 import com.tibin.practice.util.Printer;
 import com.tibin.practice.util.impl.TreePrinter;
 
-public class LowestCommonAncestor {
+public class MaxPathSum {
 
     public static void main(String[] args) {
-
         Node<Integer> root = new Node<>(1);
         Node<Integer> l1_a = new Node<>(2);
         Node<Integer> l1_b = new Node<>(3);
@@ -32,36 +31,31 @@ public class LowestCommonAncestor {
         l2_a.left(l3_a);
         l2_a.right(l3_b);
 
-        l2_b.left(l3_c);
-        l2_b.right(l3_d);
+        l3_b.left(l3_c);
+        l3_b.right(l3_d);
 
         Printer printer = new TreePrinter();
         printer.print(root);
-//
-        Node lca = getLCA(root, l3_b, l2_d);
-        System.out.println(lca.val());
+
+        int max[] = new int[1];
+        max[0] = Integer.MIN_VALUE;
+
+        findMaximumSum(root, max);
+
+        System.out.println(max[0]);
     }
 
-    public static boolean isNodeFound(Node root, Node nodeToBeFound) {
-        if (root == null)
-            return false;
-
-        if (root == nodeToBeFound)
-            return true;
-
-        return isNodeFound(root.left(), nodeToBeFound) || isNodeFound(root.right(), nodeToBeFound);
-    }
-
-    public static Node getLCA(Node root, Node node1, Node node2) {
-        if (root == null) {
-            return null;
+    public static int findMaximumSum(Node node, int max[]) {
+        if (node == null) {
+            return 0;
         }
-        if(isNodeFound(root.left(), node1) && isNodeFound(root.left(), node2)) {
-            return getLCA(root.left(), node1, node2);
-        } else if (isNodeFound(root.right(), node1) && isNodeFound(root.right(), node2)) {
-            return getLCA(root.right(), node1, node2);
-        } else {
-            return root;
-        }
+        Integer val = (Integer) node.val();
+        int left = findMaximumSum(node.left(), max);
+        int right = findMaximumSum(node.right(), max);
+
+        max[0] = Math.max(max[0], left + right + Integer.parseInt(node.val().toString()));
+
+
+        return Math.max(left, right) + Integer.parseInt(node.val().toString());
     }
 }
