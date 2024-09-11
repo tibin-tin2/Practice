@@ -11,9 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This Class is not working.
- * Need to do some refactoring on the implemented Queue
- * @see com.tibin.practice.datastructure.Queue
+ * <b>This Class is not working.</b> <br>
+ * Need to do some refactoring on the implemented {@link com.tibin.practice.datastructure.Queue Queue}
  */
 public class LevelOrderTraversal {
 
