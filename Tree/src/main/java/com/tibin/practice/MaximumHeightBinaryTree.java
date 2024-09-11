@@ -19,8 +19,8 @@ public class MaximumHeightBinaryTree {
         Printer printer = new TreePrinter();
         printer.print(node);
 
-//        int maximumHeight = maximumHeight(node);
-//        System.out.println("MaximumHeight = " + maximumHeight);
+        int maximumHeight = maximumHeight(node);
+        System.out.println("MaximumHeight = " + maximumHeight);
 
     }
 
