@@ -3,16 +3,18 @@ package com.tibin.practice;
 import com.tibin.practice.datastructure.Node;
 import com.tibin.practice.util.Printer;
 import com.tibin.practice.util.impl.TreePrinter;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-public class PreOrderTraversal {
+import static org.junit.jupiter.api.Assertions.*;
 
-    static List<Integer> preOrderList = new ArrayList<>();
+class PreOrderTraversalTest {
 
-
-    public static void main(String[] args) {
+    @Test
+    public void testPreOrder() {
         Node<Integer> root = new Node<>(1);
         Node<Integer> l1_a = new Node<>(2);
         Node<Integer> l1_b = new Node<>(3);
@@ -23,7 +25,6 @@ public class PreOrderTraversal {
         Node<Integer> l3_a = new Node<>(8);
         Node<Integer> l3_b = new Node<>(9);
         Node<Integer> l3_c = new Node<>(10);
-        Node<Integer> l3_d = new Node<>(11);
 
         root.left(l1_a);
         root.right(l1_b);
@@ -34,25 +35,23 @@ public class PreOrderTraversal {
         l1_b.left(l2_c);
         l1_b.right(l2_d);
 
-//        l2_a.left(l3_a);
-//        l2_a.right(l3_b);
+        l2_a.left(l3_a);
 
-//        l2_b.left(l3_c);
-//        l2_b.right(l3_d);
+        l2_c.right(l3_b);
+
+        l2_d.left(l3_c);
 
         Printer printer = new TreePrinter();
         printer.print(root);
 
-        preOrder(root);
-        System.out.println(preOrderList);
+
+        PreOrderTraversal.preOrder(root);
+
+        List<Integer> expectedResult = Arrays.asList(1, 2, 4, 8, 5, 3, 6, 9, 7, 10);
+
+        assertEquals(expectedResult, PreOrderTraversal.preOrderList);
+
     }
 
-    static void preOrder(Node<Integer> node) {
-        if (node == null) {
-            return;
-        }
-        preOrderList.add(node.val());
-        preOrder(node.left());
-        preOrder(node.right());
-    }
+
 }

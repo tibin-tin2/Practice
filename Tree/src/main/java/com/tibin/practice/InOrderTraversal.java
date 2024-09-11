@@ -9,7 +9,7 @@ import java.util.List;
 
 public class InOrderTraversal {
 
-    private static List<Integer> inOrderList = new ArrayList<>();
+    static List<Integer> inOrderList = new ArrayList<>();
 
     public static void main(String[] args) {
         Node<Integer> root = new Node<>(1);
@@ -47,9 +47,8 @@ public class InOrderTraversal {
         System.out.println(inOrderList);
     }
 
-    private static void inOrder(Node<Integer> node) {
-        if (node.left() == null) {
-            inOrderList.add(node.val());
+    static void inOrder(Node<Integer> node) {
+        if (node == null) {
             return;
         }
         inOrder(node.left());
