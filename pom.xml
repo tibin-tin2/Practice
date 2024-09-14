@@ -11,6 +11,7 @@
     <modules>
         <module>Tree</module>
         <module>common</module>
+        <module>Arrays</module>
     </modules>
 
     <properties>
