@@ -2,6 +2,8 @@ package com.tibin.practice.arrays;
 
 /**
  * <b>Ques:</b> Given an array of integers and an integer target, return indices of the two numbers such that they add up to target
+ * <br><p>
+ * See {@link com.tibin.practice.arrays.IndicesOfTargetNumberTest IndicesOfTargetNumberTest} for test cases.
  */
 public class IndicesOfTargetNumber {
 
