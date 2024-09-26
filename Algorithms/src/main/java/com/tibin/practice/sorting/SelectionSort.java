@@ -1,5 +1,11 @@
 package com.tibin.practice.sorting;
 
+/**
+ * <b>Selection Sort</b>
+ * <p>
+ * See {@link com.tibin.practice.sorting.SelectionSortTest SelectionSortTest} for the test cases.
+ */
+
 public class SelectionSort implements Sort {
 
     @Override
